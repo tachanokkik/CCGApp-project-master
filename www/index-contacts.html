@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Learning MDL</title>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- Material design Lite -->
+    <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-amber.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script> -->
+    <script>
+      $( document ).ready(function() {
+        console.log( "document loaded" );
+        $(".dropdown-button").dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrain_width: false,
+          gutter: 10,
+          alignment: 'left'
+        });
+
+        $("#search-btn").click(function(e){
+          console.log(123);
+          $("#head-bar").hide();
+          $("#search-bar").show();
+
+        });
+
+        $("#back-btn").click(function(e){
+          console.log(456);
+          $("#search-bar").hide();
+          $("#head-bar").show();
+        });
+
+        $('.modal').modal();
+
+      });
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      .margin-logo{
+        margin-left: 10px;
+      }
+
+      .dist-search{
+        padding-top: 10px;
+      }
+
+      .letters-icon-size{
+        width: 42px;
+        height: 42px;
+        display: inline-block;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 400;
+        padding: 5px;
+      }
+
+      .letters-icon-large-size{
+        width: 90px;
+        height: 90px;
+        display: inline-block;
+        text-align: center;
+        font-size: 4rem;
+        font-weight: 400;
+        padding: 5px;
+      }
+
+      .border-contact{
+        margin-top: 20px;
+      }
+
+      .valign-title{
+        margin-top: 12px;
+      }
+
+      .btn-contact{
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .menu-bar{
+        padding-top: 10px;
+      }
+
+      .dist-top{
+        margin-top: 20px;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <header >
+      <nav class="nav-extended">
+        <div class="nav-wrapper z-depth-1 blue menu-bar" id="head-bar">
+          <span id="logo-name" class="brand-logo left margin-logo">Contacts</span>
+          <ul id="nav-mobile" class="right ">
+            <li><a href="#" id="search-btn"><i class="material-icons">search</i></a></li>
+            <li><a href="index.html"><i class="material-icons">home</i></a></li>
+            <li><a href="#" class="dropdown-button " data-activates="dropdown1"><i class="material-icons">more_vert</i></a></li>
+
+          </ul>
+
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#contacts-to-display-dialog" class="black-text">Contacts to display</a></li>
+            <li><a href="#import-or-export-dialog" class="black-text">Import/export</a></li>
+            <li><a href="accounts.html" class="black-text">Accounts</a></li>
+            <li><a href="settings.html" class="black-text">Settings</a></li>
+            <li><a href="helpandfeedback.html" class="black-text">Help & feedback</a></li>
+          </ul>
+
+          <ul class="tabs tabs-transparent">
+            <li class="tab"><a class="active" href="#favorites-tab">Favorites</a></li>
+            <li class="tab"><a class="" href="#all-contacts-tab">All contacts</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-wrapper z-depth-1 white" style="display:none" id="search-bar">
+          <a href="#" class="blue-text left margin-logo"><i class="material-icons" id="back-btn">arrow_back</i></a>
+          <form>
+            <div class="input-field inline dist-search">
+              <input id="search" class="" placeholder="Find contacts" type="search" />
+            </div>
+          </form>
+        </div>
+
+        <div id="contacts-to-display-dialog" class="modal">
+          <div class="modal-content">
+            <h5 class="blue-text">Contacts to display</h5>
+            <div class="divider blue"></div>
+            <form action="#">
+              <input class="with-gap" name="group1" type="radio" id="test1"  checked />
+              <label for="test1" class="black-text">All contacts</label>
+
+              <div class="divider "></div>
+
+              <input class="with-gap" name="group1" type="radio" id="test2"  />
+              <label for="test2" class="black-text">Customize</label>
+            </form>
+          </div>
+        </div>
+
+        <div id="import-or-export-dialog" class="modal">
+          <div class="modal-content">
+            <h5 class="black-text">Import/export contacts</h5>
+            <div class="row">
+              <a href="#" class="col s12 waves-effect waves-grey black-text">Import from .vcf file</h5></a>
+              <a href="#" class="col s12 waves-effect waves-grey black-text">Export to .vcf file</a>
+              <a href="#" class="col s12 waves-effect waves-grey black-text">Share visible contacts</a>
+            </div>
+          </div>
+        </div>
+
+
+
+      </nav>
+    </header>
+
+    <main class="white">
+      <div id="favorites-tab" class="row">
+        <a href="contact.html" class="col s3 waves-effect waves-grey center">
+          <span class="circle letters-icon-large-size teal accent-4 white-text dist-top">M</span>
+          <p class="black-text">Monmon</p>
+        </a>
+
+        <a href="#!" class="col s3 waves-effect waves-grey center">
+          <span class="circle letters-icon-large-size deep-purple accent-3 white-text dist-top">S</span>
+          <p class="black-text">Sutinee</p>
+        </a>
+
+        <!-- <a href="#!" class="col s3 waves-effect waves-grey center ">
+          <i class="large material-icons white-text blue circle dist-top">bluetooth</i>
+          <p class="black-text">Bluetooth</p>
+        </a>
+
+        <a href="#!" class="col s3 waves-effect waves-grey center ">
+          <i class="large material-icons white-text blue circle dist-top">bluetooth</i>
+          <p class="black-text">Bluetooth</p>
+        </a> -->
+
+      </div>
+
+      <div id="all-contacts-tab" class="col s12">
+        <div class="container border-contact">
+          <div class="row">
+            <div class="col s12">
+              <div class="col s1 grey-text"><div class="valign-title">ME</div></div>
+              <a href="" class="waves-effect waves-grey col s10">
+                <div class="col s2">
+                  <span class="circle letters-icon-size deep-purple accent-3 white-text">S</span>
+                </div>
+                <div class="col s10 black-text valign-title">Sutinee</div>
+              </a>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col s12">
+              <div class="col s1 grey-text"><div class="valign-title">M</div></div>
+              <a href="contact.html" class="waves-effect waves-grey col s10">
+                <div class="col s2">
+                  <span class="circle letters-icon-size teal accent-4 white-text">M</span>
+                </div>
+                <div class="col s10 black-text valign-title">Monmon</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- 123 -->
+        </div>
+      </div>
+    </main>
+
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large waves-effect waves-light blue " href="addnewcontact.html">
+        <i class="large material-icons">person_add</i>
+      </a>
+    </div>
+
+
+  </body>
+</html>

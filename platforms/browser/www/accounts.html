@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Learning MDL</title>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- Material design Lite -->
+    <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-amber.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script> -->
+    <script>
+      $( document ).ready(function() {
+        console.log( "document loaded" );
+        $(".dropdown-button").dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrain_width: false,
+          gutter: 10,
+          alignment: 'left'
+        });
+      });
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      .margin-logo{
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+
+
+      .size-form{
+        padding: 15px;
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="">
+      <nav>
+        <div class="nav-wrapper z-depth-1 grey darken-3">
+          <span id="logo-name" class="brand-logo margin-logo left">Accounts</span>
+          <ul class="right show-on-large">
+            <li><a href="#" class="dropdown-button " data-activates="dropdown1"><i class="material-icons">more_vert</i></a></li>
+          </ul>
+
+          <ul id="dropdown1" class="dropdown-content">
+            <li>
+              <form action="#" class="size-form">
+                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                <label for="filled-in-box " class="black-text" style="font-size: 17px;">Auto-sync data</label>
+              </form>
+            </li>
+            <li><a href="helpandfeedback.html" class="black-text">Help & feedback</a></li>
+          </ul>
+
+        </div>
+      </nav>
+    </header>
+
+    <main class="white">
+      <div class="collection">
+        <a href="#!" class="collection-item">
+          <i class="material-icons green-text" style="padding-right: 20px;">account_box</i>
+          <span class="black-text" style="vertical-align: top;">Google</span>
+        </a>
+
+        <a href="#!" class="collection-item">
+          <i class="material-icons" style="padding-right: 20px;">add</i>
+          <span class="black-text" style="vertical-align: top;">Add account</span>
+        </a>
+      </div>
+
+    </main>
+
+
+
+
+  </body>
+</html>

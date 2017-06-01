@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Learning MDL</title>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <!-- Material design Lite -->
+    <!-- <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-amber.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script> -->
+    <script>
+      $( document ).ready(function() {
+        console.log( "document loaded" );
+
+        $(".dropdown-button").dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrain_width: false,
+          gutter: 10,
+          alignment: 'left'
+        });
+
+        $('.modal').modal();
+
+        $("#fav-n").click(function(e){
+          console.log("no-to-yes");
+          $("#fav-n").hide();
+          $("#fav-y").show();
+        });
+
+        $("#fav-y").click(function(e){
+          console.log("y-to-no");
+          $("#fav-y").hide();
+          $("#fav-n").show();
+        });
+      });
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      .add-photo{
+        position: relative;
+        height: 500px;
+      }
+
+      .photo-div{
+        text-align: center;
+        padding-top: 100px;
+      }
+
+      .person-icon{
+        font-size: 300px;
+      }
+
+      .name-title{
+        position: absolute;
+        bottom: 0px;
+        left: 10px;
+        padding: 10px;
+      }
+
+      .menu-bar{
+        position: absolute;
+        top: 10px;
+        right: 0px;
+      }
+
+      .menu-icon{
+        padding: 10px;
+      }
+
+      .top-div{
+        margin-top: 20px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <main class="white">
+
+      <div class="row">
+        <!-- here -->
+
+        <div class="col s12 teal accent-4 add-photo">
+
+          <div class="menu-bar">
+            <a href="#" id="fav-n" class="waves-effect waves-light menu-icon"><i class="material-icons white-text star-icon">star_border</i></a>
+            <a href="#" id="fav-y" class="waves-effect waves-light menu-icon" style="display: none;"><i class="material-icons white-text star-icon">star</i></a>
+            <a href="#" class="waves-effect waves-light menu-icon"><i class="material-icons white-text edit-icon">edit</i></a>
+            <a href="#" class="waves-effect waves-light menu-icon dropdown-button" data-activates="dropdown1"><i class="material-icons white-text more-vert-icon">more_vert</i></a>
+
+            <ul id="dropdown1" class="dropdown-content">
+              <li><a href="#!" class="black-text">Delete</a></li>
+              <li><a href="#share-dialog" class="black-text">Share</a></li>
+              <li><a href="#!" class="black-text">Place on Home screen</a></li>
+              <li><a href="#!" class="black-text">Help & feedback</a></li>
+            </ul>
+          </div>
+
+          <div id="share-dialog" class="modal bottom-sheet">
+            <div class="modal-content">
+              <h6 class="grey-text">Share contact via</h6>
+            </div>
+
+            <div class="modal-content row">
+              <a href="#!" class="col s3 waves-effect waves-grey center ">
+                <i class="medium material-icons red-text">email</i>
+                <p class="black-text">Gmail</p>
+              </a>
+
+              <a href="#!" class="col s3 waves-effect waves-grey center ">
+                <i class="medium material-icons green-text">android</i>
+                <p class="black-text">Android Beam</p>
+              </a>
+
+              <a href="#!" class="col s3 waves-effect waves-grey center ">
+                <i class="medium material-icons white-text blue circle ">bluetooth</i>
+                <p class="black-text">Bluetooth</p>
+              </a>
+
+              <a href="#!" class="col s3 waves-effect waves-grey center ">
+                <i class="medium material-icons orange-text">insert_drive_file</i>
+                <p class="black-text">Drive</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="photo-div">
+            <i class="material-icons white-text person-icon">person</i>
+          </div>
+
+          <h5 class="white-text name-title">Monmon</h5>
+
+        </div>
+
+
+        <div class="col s12">
+          <div class="card">
+            <ul class="collection">
+              <li class="collection-item">
+                <div class="row top-div">
+                  <div class="col s1"><i class="material-icons  white teal-text accent-4">email</i></div>
+                  <div class="col s10">
+                    <span class="title">monmon@gmail.com</span><br>
+                    <span class="grey-text">Home</span>
+                  </div>
+                  <div class="col s1"></div>
+                </div>
+              </li>
+
+              <li class="collection-item">
+                <div class="row top-div">
+                  <div class="col s1"><i class="material-icons  white teal-text accent-4 ">phone</i></div>
+                  <div class="col s10">
+                    <span class="title">(081) 123-4569</span><br>
+                    <span class="grey-text">Mobile</span>
+                  </div>
+                  <div class="col s1"><a href="#!" class="secondary-content"><i class="material-icons">message</i></a></div>
+                </div>
+              </li>
+
+
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+
+    </main>
+
+
+
+
+  </body>
+</html>

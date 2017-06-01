@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Learning MDL</title>
+
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+
+    <script type='text/javascript' src='js/gcal.js'></script>
+    <script>
+      $( document ).ready(function() {
+        console.log( "document loaded" );
+        $(".button-collapse").sideNav();
+
+        $(".dropdown-button").dropdown({
+          inDuration: 300,
+          outDuration: 225,
+          constrain_width: false,
+          gutter: 0,
+          alignment: 'left'
+        });
+
+        $('.modal').modal();
+
+
+
+
+      });
+    </script>
+
+    <style>
+      body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+        background-image: url("images/calendar-january.jpg");
+        background-size: 700px 1050px;
+        background-position: bottom;
+      }
+
+      main {
+        flex: 1 0 auto;
+      }
+
+      .margin-logo{
+        margin-left: 60px;
+
+      }
+
+      .email-avatar{
+        width: 40px;
+        height: 40px;
+        margin-top: 5px;
+        margin-right: 15px;
+      }
+
+      .m-top{
+        margin-top: 20px;
+      }
+
+      th{
+        padding: 5px;
+        font-size: 13px;
+      }
+
+      td{
+        padding: 3px;
+        height: 90px;
+        width: 58px;
+        font-size: 13px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      td:hover {
+        background-color: #eeeeee;
+      }
+
+      .space-h{
+        height: 75px;
+      }
+
+      .event{
+        padding-left: 2px;
+        margin: 2px;
+        border-radius: 3px;
+        color: white;
+        font-weight: bold;
+        font-size: 11px;
+      }
+
+      .event-link{
+        width: 100%;
+        padding-left: 2px;
+        margin-right: 2px;
+        border-radius: 3px;
+        color: white;
+        font-weight: bold;
+        font-size: 11px;
+      }
+
+      .more{
+        padding-left: 4px;
+        font-weight: bold;
+        font-size: 11px;
+        color: grey;
+      }
+
+      .selected-date{
+        padding-left: 2px;
+        padding-right: 2px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        color: white;
+        font-weight: bold;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+    <header>
+      <nav class=" transparent z-depth-0" role="navigation">
+        <div class="nav-wrapper" id="head-bar">
+          <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons black-text">menu</i></a>
+          <span id="logo-name" class="brand-logo margin-logo left black-text">January 2017</span>
+          <ul id="nav-mobile" class="right">
+            <li><a href="#"><i class="material-icons black-text">date_range</i></a></li>
+            <li><a href="index.html"><i class="material-icons black-text">home</i></a></li>
+            <li><a href="#" class="dropdown-button " data-activates="dropdown1"><i class="material-icons black-text">more_vert</i></a></li>
+          </ul>
+
+          <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!" class="black-text">Refresh</a></li>
+          </ul>
+
+
+          <ul class="side-nav" id="slide-out">
+            <li><a href="#!"><i class="material-icons">view_stream</i>Schedule</a></li>
+            <li><a href="#!"><i class="material-icons">view_day</i>Day</a></li>
+            <li><a href="#!"><i class="material-icons">view_column</i>Week</a></li>
+            <li><a href="#!"><i class="material-icons">inbox</i>Month</a></li>
+            <li><a href="#!"><i class="material-icons">search</i><div class="vertical-align">Search</div></a></li>
+            <li><div class="divider"></div></li>
+            <!-- <li><a href="#!"><img class="circle email-avatar" src="images/yuna.jpg" />Search</a></li> -->
+            <li><a href="#!"><i class="material-icons">settings</i>Setting</a></li>
+            <li><a href="#!"><i class="material-icons">help</i>Help & feedback</a></li>
+          </ul>
+        </div>
+
+      </nav>
+    </header>
+
+
+
+    <main>
+      <div class="space-h"></div>
+
+      <table class="white bordered">
+        <thead>
+          <tr>
+            <th data-field="sun">Sun</th>
+            <th data-field="mon">Mon</th>
+            <th data-field="tue">Tue</th>
+            <th data-field="wed">Wed</th>
+            <th data-field="thu">Thu</th>
+            <th data-field="fri">Fri</th>
+            <th data-field="sat">Sat</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>
+              <a href="#date-1" class="black-text"><div class="">1</div></a>
+              <div id="date-1" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Sun</span>
+                  <h4 class="grey-text">1</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-1" class="black-text"><div class="more">2 more</div></a>
+            </td>
+
+            <td>
+              <a href="#date-2" class="black-text"><div class="">2</div></a>
+              <div id="date-2" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Mon</span>
+                  <h4 class="grey-text">2</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-2" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>
+              <a href="#date-3" class="black-text"><div class="">3</div></a>
+              <div id="date-3" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Tue</span>
+                  <h4 class="grey-text">3</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-3" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>
+              <a href="#date-4" class="black-text"><div class="">4</div></a>
+              <div id="date-4" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Wed</span>
+                  <h4 class="grey-text">4</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-4" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>
+              <a href="#date-5" class="black-text"><div class="">5</div></a>
+              <div id="date-5" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Thu</span>
+                  <h4 class="grey-text">5</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-5" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>
+              <a href="#date-6" class="black-text"><div class="">6</div></a>
+              <div id="date-6" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Fri</span>
+                  <h4 class="grey-text">6</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-6" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>
+              <a href="#date-7" class="black-text"><div class="">7</div></a>
+              <div id="date-7" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Sat</span>
+                  <h4 class="grey-text">7</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-7" class="black-text"><div class="more">2 more</div></a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#date-8" class="black-text"><div class="">8</div></a>
+              <div id="date-8" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Sun</span>
+                  <h4 class="grey-text">8</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-8" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>
+              <a href="#date-9" class="black-text "><div class="">9</div></a>
+              <div id="date-9" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Mon</span>
+                  <h4 class="grey-text">9</h4>
+                  <p>Nothing planned. Tap to create.</p>
+                </div>
+              </div>
+            </td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#date-15" class="black-text"><div class="">15</div></a>
+              <div id="date-15" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Sun</span>
+                  <h4 class="grey-text">15</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-15" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>
+              <span class="circle blue selected-date">19</span>
+            </td>
+            <td>20</td>
+            <td>21</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#date-22" class="black-text"><div class="">22</div></a>
+              <div id="date-22" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Sun</span>
+                  <h4 class="grey-text">22</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-22" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#date-29" class="black-text"><div class="">29</div></a>
+              <div id="date-29" class="modal">
+                <div class="modal-content">
+                  <span class="grey-text">Sun</span>
+                  <h4 class="grey-text">29</h4>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link green"><div class="">event 4</div></a>
+                  <a href="event.html" class="white-text waves-effect waves-light event-link orange"><div class="">event 5</div></a>
+                </div>
+              </div>
+              <a href="event.html" class="white-text waves-effect waves-light event-link yellow"><div class="">event 1</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link pink"><div class="">event 2</div></a>
+              <a href="event.html" class="white-text waves-effect waves-light event-link purple"><div class="">event 3</div></a>
+              <a href="#date-29" class="black-text"><div class="more">2 more</div></a>
+            </td>
+            <td>30</td>
+            <td>31</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+      <!-- <div class="row">
+        <div class="col s12 center">
+          <iframe class="m-top"src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTz=0&amp;height=570&amp;wkst=1&amp;hl=en_GB&amp;bgcolor=%23FFFFFF&amp;src=3vu991drlgahhbc5bl65555gqk%40group.calendar.google.com&amp;color=%2323164E&amp;ctz=Asia%2FBangkok" style="border-width:0" width="392" height="570" frameborder="0" scrolling="no"></iframe>
+        </div>
+      </div> -->
+    </main>
+
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large waves-effect waves-light red " href="newevent.html">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
+
+
+
+  </body>
+</html>
